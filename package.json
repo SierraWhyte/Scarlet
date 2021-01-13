@@ -1,14 +1,48 @@
 {
   "name": "Scarlet",
-  "version": "0.0.0-development",
+  "version": "2.0.0",
   "scripts": {
     "release:master": "npx semantic-release --branch master",
     "semantic-release": "semantic-release"
   },
   "release": {
-"plugins": [
-["@semantic-release/npm",{"npmPublish":false}]
-],
+    "plugins": [
+      [
+        "@semantic-release/npm",
+        {
+          "npmPublish": false
+        }
+      ],
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/git",
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "preset": "esLint",
+          "releaseRules": [
+            {
+              "type": "docs",
+              "scope": "README",
+              "release": "patch"
+            },
+            {
+              "type": "refactor",
+              "release": "patch"
+            },
+            {
+              "type": "style",
+              "release": "patch"
+            }
+          ],
+          "parserOpts": {
+            "noteKeywords": [
+              "BREAKING CHANGE",
+              "BREAKING CHANGES"
+            ]
+          }
+        }
+      ]
+    ],
     "branches": [
       "master",
       "staging"
@@ -23,5 +57,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/SierraWhyte/Scarlet.git"
+  },
+  "dependencies": {
+    "conventional-changelog-eslint": "^3.0.9"
   }
 }
