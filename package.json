@@ -1,6 +1,6 @@
 {
   "name": "Scarlet",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "scripts": {
     "release:master": "npx semantic-release --branch master",
     "semantic-release": "semantic-release"
