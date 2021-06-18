@@ -13,7 +13,7 @@ $repoPassword = ''    # this must be empty if NOT using authentication
 # Make sure the version matches for the arguments as well.
 # Built-in does not work with Server Core, but if you have PowerShell 5
 # it uses Expand-Archive instead of COM
-$unzipMethod = 'builtin'
+$unzipMethod = 'Expand-Archive'
 #$unzipMethod = '7zip'
 #$7zipUrl = 'https://chocolatey.org/7za.exe' (download this file, host internally, and update this to internal)
 
@@ -21,7 +21,7 @@ $unzipMethod = 'builtin'
 # Prior to running this script, in a PowerShell session, you can set the
 # following environment variables and it will affect the output
 
-# - $env:ChocolateyEnvironmentDebug = 'true' # see output
+ - $env:ChocolateyEnvironmentDebug = 'true' # see output
 # - $env:chocolateyIgnoreProxy = 'true' # ignore proxy
 # - $env:chocolateyProxyLocation = '' # explicit proxy
 # - $env:chocolateyProxyUser = '' # explicit proxy user name (optional)
